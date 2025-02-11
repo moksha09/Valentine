@@ -32,28 +32,37 @@ const memories = [
 // Final heartfelt message
 const finalMessageHTML = `
     <div class="final-message">
-        <h2>💖 Thank You, My Love 💖</h2>
+        <h2>💖 Happy Valentine’s Day, my love!  💖</h2>
         <p>
-            From the moment we met, my life has been filled with endless love, joy, and laughter.  
-            Every memory we’ve created is a treasure I hold close to my heart.  
-            You are my best friend, my greatest adventure, and my forever love.  
+            I was going to get you something super fancy and romantic… but then I remembered you already have the best gift—me! 😌💁‍♀️
+            Jokes aside, I just want you to know how much I love you. Every day with you feels special, but today is just another excuse to remind you that you are my favorite person in the whole world.
         </p>
         <p>
-            Thank you for being you. For loving me, for standing by my side, for making me feel so special every single day.  
-            I promise to cherish and love you always.  
+            Thank you for being my goofball, my partner-in-crime, and the reason I smile so much.    
         </p>
-        <h3>Forever yours, with all my heart ❤️</h3>
+        <p> Yours forever, \n  Moksha </p>
     </div>
 `;
 
 let currentSlide = 0;
+let slideshowInterval = setInterval(nextSlide, 5000); // Auto-switch every 5s
+const toggleSlideshowBtn = document.getElementById("toggle-slideshow");
+
+toggleSlideshowBtn.addEventListener("click", () => {
+    if (slideshowInterval) {
+        clearInterval(slideshowInterval);
+        slideshowInterval = null;
+        toggleSlideshowBtn.textContent = "▶ Resume Slideshow";
+    } else {
+        slideshowInterval = setInterval(nextSlide, 5000);
+        toggleSlideshowBtn.textContent = "⏸ Pause Slideshow";
+    }
+});
 
 function showSlide(index) {
     const imgElement = document.getElementById("slideshow-img");
     const captionElement = document.getElementById("slideshow-caption");
     const slideshowContainer = document.querySelector(".slideshow");
-    const prevButton = document.getElementById("prev-btn");
-    const nextButton = document.getElementById("next-btn");
 
     if (index < memories.length) {
         imgElement.style.opacity = 0;
@@ -68,50 +77,64 @@ function showSlide(index) {
     } else {
         imgElement.style.display = "none";
         captionElement.style.display = "none";
-        slideshowContainer.innerHTML = finalMessageHTML + `<button class="prev-btn" id="prev-btn-final" onclick="prevSlide()">⬅️ Previous</button>`;
-    }
+        slideshowContainer.innerHTML = finalMessageHTML;
+        
+        // Stop slideshow at final message
+        clearInterval(slideshowInterval);
+        slideshowInterval = null;
+        toggleSlideshowBtn.style.display = "none"; // Hide the pause button
 
-    // Enable/Disable buttons based on the current slide
-    nextButton.style.display = index < memories.length ? "inline-block" : "none";
-    prevButton.style.display = index > 0 ? "inline-block" : "none";
+        // Trigger Fireworks 🎆
+        showFireworks();
+    }
 }
 
 function nextSlide() {
-    if (currentSlide < memories.length) {
-        currentSlide++;
-        showSlide(currentSlide);
-    }
-}
-
-function prevSlide() {
-    if (currentSlide > 0) {
-        currentSlide--;
-        document.querySelector(".slideshow").innerHTML = `
-            <img id="slideshow-img" src="" alt="Memory Image">
-            <div id="slideshow-caption"></div>
-            <button class="prev-btn" id="prev-btn" onclick="prevSlide()">⬅️ Previous</button>
-            <button class="next-btn" id="next-btn" onclick="nextSlide()">Next ➡️</button>
-        `;
-        showSlide(currentSlide);
-    }
+    currentSlide++;
+    showSlide(currentSlide);
 }
 
 document.addEventListener("DOMContentLoaded", () => showSlide(currentSlide));
 
-const loveLetterPopup = document.getElementById("love-letter-popup");
-const loveLetterBtn = document.getElementById("love-letter-btn");
-const closePopup = document.getElementById("close-popup");
+function openLetter() {
+    const envelope = document.querySelector(".envelope");
+    const flap = document.querySelector(".flap");
+    const letter = document.getElementById("love-letter");
+    const clickText = document.querySelector(".click-text");
 
-loveLetterBtn.addEventListener("click", () => {
-    loveLetterPopup.style.display = "block";
-});
-closePopup.addEventListener("click", () => {
-    loveLetterPopup.style.display = "none";
-});
+    // Rotate the flap to open it
+    flap.style.transform = "rotateX(-90deg)";
+
+    // Hide the click text
+    clickText.style.opacity = "0";
+
+    // Wait for the flap animation to complete before revealing the letter
+    setTimeout(() => {
+        envelope.style.display = "none"; // Hide the envelope
+        letter.classList.remove("hidden"); // Show the letter
+        letter.style.opacity = "1";
+        letter.style.transform = "translateY(0px) rotate(0deg)";
+    }, 500);
+}
 
 const music = document.getElementById("bg-music");
 const musicButton = document.getElementById("music-toggle");
+const musicMessage = document.getElementById("music-message");
 
+// Try to autoplay music when page loads
+document.addEventListener("DOMContentLoaded", () => {
+    const playPromise = music.play();
+    
+    if (playPromise !== undefined) {
+        playPromise.then(() => {
+            musicButton.textContent = "🔇 Pause Music"; // If autoplay works
+        }).catch(() => {
+            musicMessage.style.display = "block"; // Show message if blocked
+        });
+    }
+});
+
+// Play/Pause Music on Button Click
 musicButton.addEventListener("click", () => {
     if (music.paused) {
         music.play();

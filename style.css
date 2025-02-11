@@ -1,29 +1,51 @@
 /* General Styles */
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    background: linear-gradient(to bottom, #1a1a2e, #16213e);
     color: white;
     margin: 0;
     padding: 0;
-    text-align: center;
     overflow-x: hidden;
 }
 
 /* Header Styling */
+/* ✨ Enhanced Header Styling */
 .header {
-    padding: 40px 0;
+    background: linear-gradient(to bottom, #3a3d62, #283149);
+    padding: 60px 20px;
     text-align: center;
+    color: #ffffff;
+    position: relative;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* ✨ Glowing Effect for the Heading */
+.glowing-text {
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    animation: glow 2s infinite alternate;
+}
+
+/* ✨ Subtle Glow Animation */
+@keyframes glow {
+    0% { text-shadow: 0 0 5px rgba(255, 255, 255, 0.6); }
+    100% { text-shadow: 0 0 15px rgba(255, 255, 255, 1); }
+}
+
+/* 🌟 Smooth Fade-in Effect */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 h1 {
     font-size: 3rem;
     font-weight: bold;
     margin: 0;
-}
-
-.subtitle {
-    font-size: 1.3rem;
-    margin-top: 10px;
 }
 
 /* Main Container */
@@ -45,12 +67,14 @@ h1 {
 }
 
 .memory:hover {
-    transform: scale(1.03);
+    background: #e8435f;
+    box-shadow: 0px 4px 12px rgba(255, 100, 100, 0.5);
+    transform: scale(1.05);
 }
 
 /* Memory Button */
 .memory-btn {
-    background-color: #ff4b5c;
+    background: #ff4b5c;
     color: white;
     font-size: 1.2em;
     padding: 10px 20px;
@@ -61,7 +85,9 @@ h1 {
 }
 
 .memory-btn:hover {
-    background-color: #e8435f;
+    background: #e8435f;
+    box-shadow: 0px 4px 12px rgba(255, 100, 100, 0.5);
+    transform: scale(1.05);
 }
 
 /* Image Container */
@@ -114,6 +140,11 @@ h1 {
     display: block;
     margin: auto;
 }
+@media (max-width: 600px) {
+    .slideshow img {
+        max-height: 250px;
+    }
+}
 
 /* Caption Styling */
 #slideshow-caption {
@@ -124,17 +155,6 @@ h1 {
 }
 
 /* Slideshow Navigation Buttons */
-.prev-btn, .next-btn {
-    background: #ff4b5c;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin: 10px;
-    border-radius: 8px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: 0.3s;
-}
 .final-message {
     background: rgba(255, 255, 255, 0.1);
     padding: 20px;
@@ -142,78 +162,17 @@ h1 {
     text-align: center;
     max-width: 600px;
     margin: auto;
-    color: white;
+    color: rgb(255, 188, 188);
     font-size: 1.2em;
     font-weight: bold;
 }
 .final-message h2 {
     font-size: 2em;
-    color: #ffd700;
-}
-.final-message h3 {
-    font-size: 1.5em;
-    color: #ff758c;
+    color: #fea449;
 }
 .final-message p {
     font-size: 1.1em;
     line-height: 1.5;
-}
-
-/* Keep the Previous button visible on final slide */
-#prev-btn-final {
-    background: #ff4b5c;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin-top: 20px;
-    border-radius: 8px;
-    font-size: 1em;
-    cursor: pointer;
-    transition: 0.3s;
-}
-#prev-btn-final:hover {
-    background: #e8435f;
-}
-.prev-btn:hover, .next-btn:hover {
-    background: #e8435f;
-}
-/* Love letter button */
-#love-letter-btn {
-    background: #ffd700;
-    color: #6b0e0e;
-    font-size: 1.2em;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-#love-letter-btn:hover {
-    background: #ffcc33;
-}
-
-#love-letter-popup {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: white;
-    padding: 20px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    border-radius: 12px;
-    width: 300px;
-}
-.popup-content {
-    color: #6b0e0e;
-}
-#close-popup {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    font-size: 1.5em;
 }
 
 /* Background Music */ 
@@ -232,6 +191,36 @@ h1 {
 }
 #music-toggle:hover {
     background: #e8435f;
+    box-shadow: 0px 4px 12px rgba(255, 100, 100, 0.5);
+    transform: scale(1.05);
+}
+
+#music-message {
+    position: fixed;
+    bottom: 60px;
+    right: 20px;
+    color: white;
+    font-size: 1em;
+    display: none; /* Hidden by default */
+}
+
+/*Toggle slideshow */ 
+#toggle-slideshow {
+    background: #ff4b5c;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-left: 40%;
+}
+#toggle-slideshow:hover {
+    background: #e8435f;
+    box-shadow: 0px 4px 12px rgba(255, 100, 100, 0.5);
+    transform: scale(1.05);
 }
 
 
@@ -257,13 +246,212 @@ h1 {
 }
 /* Floating Animation */
 @keyframes float {
-    0% { transform: translateY(100vh) scale(0.5); opacity: 1; }
-    100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+    0% { transform: translateY(100vh) translateX(-10vw) scale(0.5); opacity: 1; }
+    100% { transform: translateY(-10vh) translateX(10vw) scale(1.2); opacity: 0; }
 }
-/* Footer */
-.footer {
-    margin-top: 50px;
-    padding: 30px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
+
+/* 💌 Letter & 🎶 Playlist Layout */
+.letter-playlist-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    margin: 60px auto;
+    max-width: 1000px;
 }
+
+/* 💌 Love Letter Section */
+.letter-section {
+    flex: 1;
+    text-align: center;
+}
+
+/* 🎵 Playlist Section */
+.playlist-section {
+    flex: 1;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 5%;
+    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.2);
+    max-width: 400px;
+}
+
+/* 💌 Love Letter Styling */
+.letter {
+    max-width: 400px;
+    background: rgb(245, 212, 175);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(20px) rotate(-2deg);
+    opacity: 1;
+    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+
+/* 💌 Envelope Styling */
+.envelope {
+    width: 200px;
+    height: 140px;
+    background: #ff758c;
+    position: relative;
+    margin: auto;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.5s;
+    overflow: hidden;
+}
+
+.envelope .flap {
+    width: 100%;
+    height: 50%;
+    background: #ff4b5c;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 10px 10px 0 0;
+    transform-origin: top;
+    transition: transform 0.5s ease-in-out;
+}
+.envelope .body {
+    width: 100%;
+    height: 50%;
+    background: #ff4b5c;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-radius: 0 0 10px 10px;
+}
+.click-text {
+    font-size: 1.2em;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* 💌 Love Letter Text */
+.letter p {
+    font-size: 1.1em;
+    color: #6b0e0e;
+}
+.letter .signature {
+    text-align: right;
+    font-weight: bold;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.4em;
+    color: #a52a2a;
+}
+.hidden {
+    display: none;
+}
+
+/* 🎵 Playlist Section */
+.playlist-section h2 {
+    color: white;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.playlist-section iframe {
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.2);
+    height: 380px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .letter-playlist-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
+.letter-container {
+    text-align: center;
+    margin-top: 30px;
+    position: relative;
+}
+
+.envelope {
+    width: 180px;
+    height: 120px;
+    background: #ff758c;
+    position: relative;
+    margin: auto;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.5s;
+    overflow: hidden; /* Ensures flap stays inside */
+}
+
+.envelope .flap {
+    width: 100%;
+    height: 50%;
+    background: #ff4b5c;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 10px 10px 0 0;
+    transform-origin: top;
+    transition: transform 0.5s ease-in-out;
+}
+
+.envelope .body {
+    width: 100%;
+    height: 50%;
+    background: #ff758c;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-radius: 0 0 10px 10px;
+}
+
+.click-text {
+    font-size: 0.9em;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Love letter styling */
+.letter {
+    max-width: 350px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin: auto;
+    text-align: left;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(20px) rotate(-2deg);
+    opacity: 0;
+    transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out;
+}
+
+.letter p {
+    font-size: 1.1em;
+    color: #6b0e0e;
+}
+
+.letter .signature {
+    text-align: right;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+
