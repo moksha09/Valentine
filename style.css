@@ -1,0 +1,185 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    color: white;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* Header Styling */
+.header {
+    padding: 40px 0;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    margin-top: 10px;
+}
+
+/* Main Container */
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Memory Section */
+.memory {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.memory:hover {
+    transform: scale(1.03);
+}
+
+/* Memory Button */
+.memory-btn {
+    background-color: #ff4b5c;
+    color: white;
+    font-size: 1.2em;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.memory-btn:hover {
+    background-color: #e8435f;
+}
+
+/* Image Container */
+.image-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Individual Images */
+.small-image {
+    border-radius: 8px;
+    width: 45%;
+    max-width: 250px;
+    height: auto;
+}
+
+/* Centered Image */
+.center-image {
+    display: block;
+    margin: auto;
+    width: 60%;
+    max-width: 300px;
+}
+
+/* Caption Styling */
+.caption {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Slideshow Container */
+.slideshow {
+    position: relative;
+    max-width: 80%; /* Adjust width dynamically */
+    margin: auto;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Image Styling - Maintain Original Aspect Ratio */
+.slideshow img {
+    width: auto; /* Keep natural width */
+    max-width: 100%; /* Prevent overflow */
+    max-height: 400px; /* Prevent overly tall images */
+    border-radius: 12px;
+    box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.3);
+    transition: opacity 0.5s ease-in-out;
+    display: block;
+    margin: auto;
+}
+
+/* Caption Styling */
+#slideshow-caption {
+    font-size: 1.2em;
+    color: white;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Slideshow Navigation Buttons */
+.prev-btn, .next-btn {
+    background: #ff4b5c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.prev-btn:hover, .next-btn:hover {
+    background: #e8435f;
+}
+
+
+/* Floating Hearts Container */
+.hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Prevent hearts from blocking interactions */
+    overflow: hidden;
+}
+
+/* Heart Styling */
+.heart {
+    width: 50px;
+    height: 50px;
+    background-image: url('https://raw.githubusercontent.com/moksha09/Valentine/main/images/heart2.png'); /* Make sure this URL works */
+    background-size: cover;
+    position: absolute;
+    animation: float 5s linear infinite;
+    opacity: 0.8;
+}
+
+/* Floating Animation */
+@keyframes float {
+    0% { transform: translateY(100vh) scale(0.5); opacity: 1; }
+    100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+}
+
+
+/* Footer */
+.footer {
+    margin-top: 50px;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+}
+
+/* Love Letter */
+.love-letter {
+    font-size: 1.2em;
+    margin-top: 20px;
+}

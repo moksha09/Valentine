@@ -4,195 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Love Story</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #6b0e0e; /* Soft pink background */
-            color: #5a5a5a;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            position: relative;
-            overflow-x: hidden;
-            overflow-y: auto;
-
-        }
-        h1 {
-            color: #ffd91a;
-            font-size: 3em;
-            margin-top: 20px;
-        }
-        .container {
-            max-width: 600px;
-            margin: auto;
-            padding: 20px;
-        }
-        .memory {
-            background: white;
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 10px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .memory-btn {
-            background-color: #6b0e0e; /* Cute pink */
-            color: white;
-            font-size: 1.2em;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: 0.3s ease;
-        }
-
-        .memory-btn:hover {
-            background-color: #943636;
-        }
-
-        /* Hidden pop-up */
-        .popup {
-            position: absolute;
-            bottom: 90%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #ffdc67;
-            color: rgb(3, 0, 0);
-            padding: 8px 12px;
-            border-radius: 8px;
-            font-size: 1em;
-            display: none;
-            white-space: nowrap;
-        }
-
-        /* Show pop-up when hovering over button */
-        .memory:hover .popup {
-            display: block;
-        }
-        .memory img {
-            width: 100%;
-            border-radius: 8px;
-        }
-        .image-container {
-            display: flex; /* Arrange images side by side */
-            align-items: center; /* Align them properly */
-            gap: 10px; /* Add space between images */
-            }
-
-        .small-image {
-            border-radius: 8px; /* Keep rounded edges */
-        }
-
-        .left-image {
-            margin-left: auto; /* Push slightly to the left */
-            width: 45%;  /* Make images smaller */
-            max-width: 200px; /* Limit max size */
-            height: 300px; /* Maintain aspect ratio */
-        }
-
-        .right-image {
-            margin-right: auto; /* Push slightly to the right */
-            width: 45%;  /* Make images smaller */
-            max-width: 200px; /* Limit max size */
-            height: 300px; /* Maintain aspect ratio */
-        }
-
-        .caption {
-            font-size: 1.3em;
-            color: #d63384;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-        .footer {
-            margin-top: 30px;
-            padding: 20px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        .love-letter {
-            font-size: 1.2em;
-            color: #5a5a5a;
-            text-align: left;
-            margin-top: 20px;
-        }
-
-        /* Heart Styling */
-        .heart {
-            width: 50px;
-            height: 50px;
-            background-image: url('https://raw.githubusercontent.com/moksha09/Valentine/main/heart2.png'); /* GitHub image */
-            background-size: cover;
-            position: absolute;
-            animation: float 6s infinite alternate ease-in-out;
-            opacity: 0.7;
-            pointer-events: none;
-        }
-
-        /* Floating Animation */
-        @keyframes float {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-20px); }
-        }
-
-        /* Random Heart Positions */
-        .heart:nth-child(1) { top: 5%; left: 25%; animation-duration: 4s; }
-        .heart:nth-child(2) { top: 20%; left: 90%; animation-duration: 6s; }
-        .heart:nth-child(3) { top: 25%; left: 28%; animation-duration: 6.5s; }
-        .heart:nth-child(4) { top: 30%; left: 80%; animation-duration: 5s; }
-        .heart:nth-child(5) { top: 40%; left: 5%; animation-duration: 5s; }
-        .heart:nth-child(6) { top: 60%; left: 80%; animation-duration: 5.5s; }
-        .heart:nth-child(7) { top: 67%; left: 10%; animation-duration: 7s; }
-        .heart:nth-child(8) { top: 89%; left: 75%; animation-duration: 4.5s; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Our Love Story 💖</h1>
+    <div class="header">
+        <h1>Our Love Story 💖</h1>
+        <p class="subtitle">A journey of love, laughter, and unforgettable memories</p>
+    </div>
 
     <!-- Floating Hearts -->
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
-    <div class="heart"></div>
+    <div class="hearts-container"></div>
 
     <div class="container">
-        <div class="memory">
-            <button class="memory-btn">First Day We Met</button>
-            <div class="popup">"6 Oct 2023"</div>
-            <div class="caption">The magical day our paths crossed! ✨</div>
-        </div>
-        <div class="memory">
-            <div class="image-container">
-                <img class="small-image left-image" src="https://raw.githubusercontent.com/moksha09/Valentine/main/bluebrick2.jpg" alt="Our First Date">
-                <img class="small-image right-image" src="https://raw.githubusercontent.com/moksha09/Valentine/main/blubrick1.jpg" alt="Our First Date">
-            </div>
-            <div class="caption">Our first date – where it all began! 🍷❤️</div>
-        </div>        
-        <div class="memory">
-            <img src="https://source.unsplash.com/800x500/?travel,couple" alt="Our First Trip Together">
-            <div class="caption">Adventuring together, making memories! ✈️💑</div>
-        </div>
-        <div class="memory">
-            <img src="https://source.unsplash.com/800x500/?birthday,cake" alt="Birthday">
-            <div class="caption">Celebrating your special day with love and laughter! 🎂🎈</div>
-        </div>
-        <div class="memory">
-            <img src="https://source.unsplash.com/800x500/?romantic,anniversary" alt="Anniversary">
-            <div class="caption">Another beautiful year of us! 💞</div>
+        <div class="slideshow">
+            <img id="slideshow-img" src="" alt="Memory Image">
+            <div id="slideshow-caption"></div>
+            <button class="prev-btn" onclick="prevSlide()">⬅️ Previous</button>
+            <button class="next-btn" onclick="nextSlide()">Next ➡️</button>
         </div>
     </div>
 
     <div class="footer">
         <h2>Our Playlist 🎶</h2>
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/1RxqerdaPoeEyxmJADeqrB?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe src="https://open.spotify.com/embed/playlist/1RxqerdaPoeEyxmJADeqrB?utm_source=generator&theme=0"
+            width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="eager"></iframe>
         
         <div class="love-letter">
             <h3>My Love Letter to You 💌</h3>
-            <p>My love, every moment with you is a dream come true. From our first meeting to every adventure we share, my heart beats only for you. You are my forever, my happiness, my everything. I love you endlessly! ❤️</p>
+            <p>My love, every moment with you is a dream come true. You are my forever, my happiness, my everything. I love you endlessly! ❤️</p>
         </div>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
