@@ -32,11 +32,7 @@ const memories = [
 // Final heartfelt message
 const finalMessageHTML = `
     <div class="final-message">
-        <h2>💖 Happy Valentine’s Day, my love!  💖</h2>
-        <p>
-            I was going to get you something super fancy and romantic… but then I remembered you already have the best gift—me! 😌💁‍♀️
-            Jokes aside, I just want you to know how much I love you. Every day with you feels special, but today is just another excuse to remind you that you are my favorite person in the whole world.
-        </p>
+        <h2>💖 Happy Valentine’s Day!  💖</h2>
         <p>
             Thank you for being my goofball, my partner-in-crime, and the reason I smile so much.    
         </p>
