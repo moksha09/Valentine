@@ -130,6 +130,31 @@ h1 {
     text-align: center;
     padding: 20px;
 }
+/* 🎬 Start Slideshow Button */
+#start-slideshow {
+    background: #ff4b5c;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#start-slideshow:hover {
+    background: #e8435f;
+}
+
+/* 🎥 Hide elements before slideshow starts */
+.hidden {
+    display: none;
+}
+
 
 /* Image Styling - Maintain Original Aspect Ratio */
 .slideshow img {
