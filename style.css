@@ -154,26 +154,30 @@ h1 {
     font-weight: bold;
 }
 
-/* Slideshow Navigation Buttons */
-.final-message {
+/* 💖 Time Together Section */
+.time-together {
+    text-align: center;
     background: rgba(255, 255, 255, 0.1);
     padding: 20px;
     border-radius: 12px;
-    text-align: center;
-    max-width: 600px;
+    max-width: 500px;
     margin: auto;
-    color: rgb(255, 188, 188);
-    font-size: 1.0em;
+    color: white;
+    font-size: 1.5em;
     font-weight: bold;
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
 }
-.final-message h2 {
-    font-size: 1.4em;
-    color: #fea449;
+
+.time-together h2 {
+    font-size: 1.2em;
+    color: #ffd700;
 }
-.final-message p {
-    font-size: 1.1em;
-    line-height: 1.5;
+
+.time-together p {
+    font-size: 1.0em;
+    color: #ffcccb;
 }
+
 
 /* Background Music */ 
 #music-toggle {
@@ -281,7 +285,7 @@ h1 {
 
 /* 💌 Love Letter Styling */
 .letter {
-    max-width: 400px;
+    max-width: 300px;
     background: rgb(245, 212, 175);
     padding: 20px;
     border-radius: 10px;
@@ -405,7 +409,7 @@ h1 {
 
 /* Love letter styling */
 .letter {
-    max-width: 350px;
+    max-width: 300px;
     background: white;
     padding: 20px;
     border-radius: 10px;

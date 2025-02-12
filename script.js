@@ -29,17 +29,30 @@ const memories = [
     { img: "https://raw.githubusercontent.com/moksha09/Valentine/main/images/Bike.jpeg", caption: "Our First Bike! 💞" }
 ];
 
-// Final heartfelt message
-const finalMessageHTML = `
-    <div class="final-message">
-        <h2>💖 Happy Valentine’s Day!  💖</h2>
-        <p>
-            Thank you for being my goofball, my partner-in-crime, and the reason I smile so much.    
-        </p>
-        <p> Yours forever, \n  Moksha </p>
-    </div>
-`;
+function calculateTimeTogether() {
+    const anniversaryDate = new Date("2023-10-27"); // 🎉 Your anniversary date
+    const today = new Date();
 
+    let years = today.getFullYear() - anniversaryDate.getFullYear();
+    let months = today.getMonth() - anniversaryDate.getMonth();
+    let days = today.getDate() - anniversaryDate.getDate();
+
+    if (days < 0) {
+        months--;
+        days += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+    }
+    if (months < 0) {
+        years--;
+        months += 12;
+    }
+
+    return `<div class="time-together">
+                <h2> We've Been Together For - </h2>
+                <p>${years} Years, ${months} Months, and ${days} Days</p>
+            </div>`;
+}
+
+// 🔄 Slideshow Functionality
 let currentSlide = 0;
 let slideshowInterval = setInterval(nextSlide, 5000); // Auto-switch every 5s
 const toggleSlideshowBtn = document.getElementById("toggle-slideshow");
@@ -73,15 +86,12 @@ function showSlide(index) {
     } else {
         imgElement.style.display = "none";
         captionElement.style.display = "none";
-        slideshowContainer.innerHTML = finalMessageHTML;
+        slideshowContainer.innerHTML = calculateTimeTogether();
         
         // Stop slideshow at final message
         clearInterval(slideshowInterval);
         slideshowInterval = null;
         toggleSlideshowBtn.style.display = "none"; // Hide the pause button
-
-        // Trigger Fireworks 🎆
-        showFireworks();
     }
 }
 
