@@ -115,7 +115,6 @@ function openLetter() {
 
 const music = document.getElementById("bg-music");
 const musicButton = document.getElementById("music-toggle");
-const musicMessage = document.getElementById("music-message");
 
 // Try to autoplay music when page loads
 document.addEventListener("DOMContentLoaded", () => {
