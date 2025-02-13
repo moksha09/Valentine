@@ -242,15 +242,6 @@ h1 {
     transform: scale(1.05);
 }
 
-#music-message {
-    position: fixed;
-    bottom: 60px;
-    right: 20px;
-    color: white;
-    font-size: 1em;
-    display: none; /* Hidden by default */
-}
-
 /*Toggle slideshow */ 
 #toggle-slideshow {
     background: #ff4b5c;
@@ -424,8 +415,8 @@ h1 {
 
 /* 🎧 Animated GIF */
 .playlist-gif {
-    width: 50px; /* Default size for desktop */
-    height: auto;
+    width: 25px; /* Default size for desktop */
+    height: 25px;
 }
 
 /* Responsive Design */
@@ -510,5 +501,19 @@ h1 {
 .hidden {
     display: none;
 }
+
+/* 🕯️ Candlelight Mode */
+.candle-container {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.candle {
+    width: 50px;
+    height: auto;
+    display: block;
+    margin: auto;
+}
+
 
 

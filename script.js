@@ -110,15 +110,16 @@ toggleSlideshowBtn.addEventListener("click", () => {
         toggleSlideshowBtn.textContent = "⏸ Pause Slideshow";
     }
 });
-
-
 document.addEventListener("DOMContentLoaded", () => showSlide(currentSlide));
 
+
+// 🕯️ Candlelight Mode when Love Letter Opens
 function openLetter() {
     const envelope = document.querySelector(".envelope");
     const flap = document.querySelector(".flap");
     const letter = document.getElementById("love-letter");
     const clickText = document.querySelector(".click-text");
+    const candle = document.querySelector(".candle");
 
     // Rotate the flap to open it
     flap.style.transform = "rotateX(-90deg)";
@@ -132,6 +133,7 @@ function openLetter() {
         letter.classList.remove("hidden"); // Show the letter
         letter.style.opacity = "1";
         letter.style.transform = "translateY(0px) rotate(0deg)";
+        candle.classList.remove("hidden"); // Show candle
     }, 500);
 }
 
@@ -161,4 +163,3 @@ musicButton.addEventListener("click", () => {
         musicButton.textContent = "🔈 Play Music";
     }
 });
-
